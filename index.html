@@ -1,0 +1,24 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🕵️‍♂️ Fake News Detection</h1>
+        <form method="POST" action="/predict">
+            <textarea name="news" placeholder="Enter news headline or content..."></textarea>
+            <button type="submit">Check</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <strong>Prediction:</strong> {{ prediction.upper() }} <br>
+                <strong>News:</strong> "{{ news }}"
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
